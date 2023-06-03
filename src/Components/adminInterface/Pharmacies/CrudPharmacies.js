@@ -64,11 +64,11 @@ export default function CrudPharmacy() {
     const fetchData = async () => {
       try {
         // Fetch data for pharmacies from Spring API using Axios
-        const pharmaciesResponse = await axios.get('/api/pharmacie/all');
+        const pharmaciesResponse = await axios.get('https://pharmacylocator-production.up.railway.app/api/pharmacie/all');
         setPharmacies(pharmaciesResponse.data);
 
         // Fetch data for zones from Spring API using Axios
-        const zonesResponse = await axios.get('/api/zone/all');
+        const zonesResponse = await axios.get('https://pharmacylocator-production.up.railway.app/api/zone/all');
         setZones(zonesResponse.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -80,7 +80,7 @@ export default function CrudPharmacy() {
 
   const fetchPharmacies = async () => {
     try {
-      const pharmaciesResponse = await axios.get('/api/pharmacie/all');
+      const pharmaciesResponse = await axios.get('https://pharmacylocator-production.up.railway.app/api/pharmacie/all');
       setPharmacies(pharmaciesResponse.data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -98,7 +98,7 @@ export default function CrudPharmacy() {
     try {
       await axios.delete(`/api/pharmacie/delete/${pharmacyId}`);
       // Fetch updated data for pharmacies after deletion
-      const pharmaciesResponse = await axios.get('/api/pharmacie/all');
+      const pharmaciesResponse = await axios.get('https://pharmacylocator-production.up.railway.app/api/pharmacie/all');
       setPharmacies(pharmaciesResponse.data);
     } catch (error) {
       console.error('Erreur:', error);

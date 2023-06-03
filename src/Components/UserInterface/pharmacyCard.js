@@ -11,7 +11,7 @@ export default function CardPharm({ selectedZone }) {
   const [zones, setZones] = useState([]);
 
   useEffect(() => {
-    fetch("/api/pharmacie/all")
+    fetch("https://pharmacylocator-production.up.railway.app/api/pharmacie/all")
       .then((response) => response.json())
       .then((data) => setPharmacies(data));
 

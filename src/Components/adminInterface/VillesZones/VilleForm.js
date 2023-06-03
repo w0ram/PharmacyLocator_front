@@ -15,7 +15,7 @@ export default function VilleForm() {
   const handleAddVille = () => {
 
     axios
-      .post('/api/ville/save', { nom: villeNom })
+      .post('https://pharmacylocator-production.up.railway.app/api/ville/save', { nom: villeNom })
       .then((response) => {
       
         NotificationManager.success('Ajoutee');

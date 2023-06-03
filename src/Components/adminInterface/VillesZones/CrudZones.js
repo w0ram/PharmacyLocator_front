@@ -47,8 +47,8 @@ export default function CrudZ() {
   const fetchData = async () => {
     try {
       const [villesResponse, zonesResponse] = await axios.all([
-        axios.get('/api/ville/all'),
-        axios.get('/api/zone/all'),
+        axios.get('https://pharmacylocator-production.up.railway.app/api/ville/all'),
+        axios.get('https://pharmacylocator-production.up.railway.app/api/zone/all'),
       ]);
       setVilles(villesResponse.data);
       setZones(zonesResponse.data);
@@ -59,7 +59,7 @@ export default function CrudZ() {
 
   const handleDeleteZone = (zoneId) => {
     axios
-      .delete(`/api/zone/delete/${zoneId}`)
+      .delete(`https://pharmacylocator-production.up.railway.app/api/zone/delete/${zoneId}`)
       .then(() => {
         setRefreshTables(true);
         NotificationManager.success('Done', 'Title', 3000);
@@ -77,7 +77,7 @@ export default function CrudZ() {
 
   const handleEditZoneName = () => {
     axios
-      .put(`/api/zone/update/${selectedZone.id}`, { nom: editedZoneName })
+      .put(`https://pharmacylocator-production.up.railway.app/api/zone/update/${selectedZone.id}`, { nom: editedZoneName })
       .then(() => {
         setRefreshTables(true);
         setEditModalOpen(false);

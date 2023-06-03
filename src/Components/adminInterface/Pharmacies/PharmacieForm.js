@@ -28,7 +28,7 @@ export default function PharmacyForm() {
   useEffect(() => {
     // Fetch all zones from the API using Axios
     axios
-      .get('/api/zone/all')
+      .get('https://pharmacylocator-production.up.railway.app/api/zone/all')
       .then(response => {
         setZones(response.data);
       })
@@ -72,7 +72,7 @@ export default function PharmacyForm() {
     console.log(updatedPharmacyInfo);
     console.log(file);
     axios
-      .post('/api/pharmacie/save', updatedPharmacyInfo)
+      .post('https://pharmacylocator-production.up.railway.app/api/pharmacie/save', updatedPharmacyInfo)
       .then((response) => {
 
         NotificationManager.success('bien ajoutée', 3000);

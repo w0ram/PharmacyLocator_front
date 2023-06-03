@@ -40,8 +40,8 @@ export default function Crud() {
   const fetchData = async () => {
     try {
       const [villesResponse, zonesResponse] = await axios.all([
-        axios.get('/api/ville/all'),
-        axios.get('/api/zone/all'),
+        axios.get('https://pharmacylocator-production.up.railway.app/api/ville/all'),
+        axios.get('https://pharmacylocator-production.up.railway.app/api/zone/all'),
       ]);
       setVilles(villesResponse.data);
       setZones(zonesResponse.data);
@@ -52,7 +52,7 @@ export default function Crud() {
   const [editModalOpen, setEditModalOpen] = useState(false);
   const handleDeleteVille = (villeId) => {
     axios
-      .delete(`/api/ville/delete/${villeId}`)
+      .delete(`https://pharmacylocator-production.up.railway.app/api/ville/delete/${villeId}`)
       .then(() => {
         setRefreshTables(true);
         NotificationManager.success('Supprimee');
@@ -70,7 +70,7 @@ export default function Crud() {
   };
   const handleEditVilleName = () => {
     axios
-      .put(`/api/ville/update/${selectedVille.id}`, { nom: editedVille })
+      .put(`https://pharmacylocator-production.up.railway.app/api/ville/update/${selectedVille.id}`, { nom: editedVille })
       .then(() => {
         setRefreshTables(true);
         setEditModalOpen(false);

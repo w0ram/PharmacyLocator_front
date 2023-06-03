@@ -12,7 +12,7 @@ export default function Grouped() {
     const accessToken = localStorage.getItem('access_token');
 
     axios
-      .get('/api/zone/all', {
+      .get('https://pharmacylocator-production.up.railway.app/api/zone/all', {
         headers: {
           Authorization: `Bearer ${accessToken}`,
         },
